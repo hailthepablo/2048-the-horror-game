@@ -1,0 +1,34 @@
+-------------------------------------
+      THIS IS A 2048 LEVEL FILE
+-------------------------------------
+
+_REF Name
+
+Start
+
+_END
+
+
+
+_REF Map
+
+p
+j
+j
+n
+
+_END
+
+
+
+_REF Doors
+
+(0,3,90) Classic (0,1,2,3)
+
+_END
+
+
+
+_REF Objectives
+
+_END

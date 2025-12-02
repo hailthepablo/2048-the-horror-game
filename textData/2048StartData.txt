@@ -1,0 +1,4 @@
+levelName:Classic
+levelData:0d
+displayMode:1
+startMode:2

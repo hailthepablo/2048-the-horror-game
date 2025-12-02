@@ -1,0 +1,10 @@
+string - get boxed lol - getBoxedText
+string - red - color
+tuple - (3,3) - positionTuple
+get - font - font
+get - playerPos - playerPos
+int - 1 - one
+is - positionTuple - playerPos - condition
+if - condition - one
+write - getBoxedText - 
+

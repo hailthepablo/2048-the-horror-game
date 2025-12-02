@@ -1,0 +1,39 @@
+-------------------------------------
+      THIS IS A 2048 LEVEL FILE
+-------------------------------------
+
+_REF Name
+
+Maze
+
+_END
+
+
+
+_REF Map
+
+mkhmh
+ghfkb
+ndkcb
+gimij
+fkomi
+
+_END
+
+
+
+_REF Doors
+
+(0,3,90) Classic (0,1,2,3)
+
+_END
+
+
+
+_REF Objectives
+
+Get 2048
+
+Do stuff
+
+_END

@@ -1,0 +1,8 @@
+devPassword:debugger666
+currentStep:NotStart
+gameMode:Dev
+mapName:closed box
+hydraSpawnTime:0
+startingNums:1
+displayHydra:0
+hydraFaces:

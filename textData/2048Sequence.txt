@@ -1,0 +1,3 @@
+Start,hydraSpawnTime=-1
+Start,currentStep=NotStart
+NotStart,hydraSpawnTime=0

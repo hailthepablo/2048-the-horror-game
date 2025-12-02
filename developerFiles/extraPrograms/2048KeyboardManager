@@ -1,0 +1,62 @@
+import turtle
+from functools import partial
+import os
+import time
+
+def overlap(list1,list2):
+    for i in list1:
+        if i in list2:
+            return True
+    return False
+
+# KEYBOARD MANAGER
+
+keyList = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","Left","Right","Up","Down"]
+isPressedList = [False for i in range(len(keyList))]
+keysDown = []
+
+def updateKeyLists(key,isPressed):
+    global isPressedList
+    global keysDown
+
+    replacementIndex = keyList.index(key)
+    
+    newList = []
+    for i in range(len(isPressedList)):
+        if i == replacementIndex:
+            newList = newList + [isPressed]
+        else:
+            newList = newList + [isPressedList[i]]
+    
+    isPressedList = newList
+
+    keysDown = []
+
+    for i in range(len(keyList)):
+        if isPressedList[i]:
+            keysDown = keysDown + [keyList[i]]
+
+def keyPressed(key):
+    return key in keysDown
+
+wn = turtle.Screen()
+wn.tracer(0,0)
+wn.listen()
+
+for i in keyList:
+    wn.onkeypress(partial(updateKeyLists,i,True),i)
+    wn.onkeyrelease(partial(updateKeyLists,i,False),i)
+
+while 1==1:
+    while not overlap(keysDown,["w","a","s","d"]):
+        print("NOT HELD")
+        os.system("clear")
+        wn.update()
+    while overlap(keysDown,["w","a","s","d"]):
+        print("HELD")
+        os.system("clear")
+        wn.update()
+    print("DOING ACTION")
+    time.sleep(2)
+    os.system("clear")
+    wn.update()
