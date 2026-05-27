@@ -1,6 +1,6 @@
 # 2048: The Horror Game
 
-This repository is for both the original Python and the eventual C++ versions of 2048: The Horror Game, though I have no idea when or how I'll start working on the the C++ one.
+This repository is for both the original Python and the eventual C++ versions of 2048: The Horror Game.
 
 ## Setup instructions
 
