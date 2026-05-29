@@ -8,7 +8,6 @@
 using namespace std;
 
 string pointStr(array<int, 2> point);
-string displayStr(vector<vector<string> > displayArray);
 
 template <typename T>
 string str(T var) {
@@ -19,20 +18,32 @@ string str(T var) {
     return ret;
 }
 
-template <typename T>
-vector<vector<T> > generateArray(int numRows, int numCols, T defaultSpace) {
-    vector<T> row = {};
-    vector<vector<T> > fullArray = {};
-    for (int i = 0; i < numCols; i++) {
-        row.push_back(defaultSpace);
+template <typename T, int width, int height>
+array< array< T, width >, height > generateArray(T defaultSpace) {
+    array< array< T, width >, height > arr;
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            arr[i][j] = defaultSpace;
+        }
     }
-    for (int i = 0; i < numRows; i++) {
-        fullArray.push_back(row);
-    }
-    return fullArray;
+    return arr;
 }
 
-template <typename T>
+template<size_t width, size_t height>
+string displayStr(array< array< string, height >, width > displayArray) {
+    string displayString = "";
+
+    for (int i = 0; i < width; i++) {
+        for (int j = 0; j < height; j++) {
+            displayString += displayArray[i][j] + " ";
+        }
+        displayString += "\n";
+    }
+    
+    return displayString;
+}
+
+template <typename T = int, int width = 4, int height = 4>
 class Grid {
     public:
         array<int, 2> _origin;
@@ -42,14 +53,14 @@ class Grid {
         int _yDir;
         int _height;
         int _width;
-        vector<vector<T> > _gridArray;
+        array< array< T, width >, height > _gridArray;
 
-        Grid(vector<vector<T> > gridArray, array<int, 2> origin = {0,0}, string order = "yx", string xDir = "right", string yDir = "down") {
+        Grid(array< array< T, width >, height > gridArray, array<int, 2> origin = {0,0}, string order = "yx", string xDir = "right", string yDir = "down") {
             _origin = origin;
             _gridArray = gridArray;
 
-            _height = gridArray.size();
-            _width = gridArray[0].size();
+            _height = height;
+            _width = width;
             
             if (order == "yx") {
                 _slot0 = 0;
@@ -78,7 +89,6 @@ class Grid {
             } else if (_slot0 == 1) {
                 return {_xDir*(indexes[1]-_origin[1]),_yDir*(indexes[0]-_origin[0])};
             } else {
-                cout << "ERROR: Slot indexes were not 0 or 1\n";
                 exit(0);
             }
         }
@@ -110,7 +120,7 @@ class Grid {
             }
         }
 
-        vector<vector<string> > getDisplayArray(string align) { 
+        array< array< string, height >, width > getDisplayArray(string align) { 
             vector<int> maxList = {};
             int curMax;
 
@@ -124,7 +134,7 @@ class Grid {
                 maxList.push_back(curMax);
             }
             
-            vector<vector<string> > displayArray = generateArray(_height,_width,string("."));
+            array< array< string, height >, width > displayArray = generateArray<string,width,height>(string("."));
             string spaces;
 
             for (int i = 0; i < _width; i++) {
