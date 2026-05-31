@@ -5,6 +5,7 @@
 #include "walls.h"
 using namespace std;
 
+
 class Scene {
     private:
         Grid<int> _numGrid;

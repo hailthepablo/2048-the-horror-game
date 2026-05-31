@@ -83,6 +83,10 @@ class Grid {
             } 
         }
 
+        Grid() {
+            Grid
+        }
+
         array<int, 2> getPos(array<int, 2> indexes) {
             if (_slot0 == 0) {
                 return {_yDir*(indexes[0]-_origin[0]),_xDir*(indexes[1]-_origin[1])};

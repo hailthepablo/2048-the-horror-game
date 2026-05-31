@@ -10,7 +10,7 @@ void Scene::applyVector(array<int, 2> pos, array<int, 2> pushVec) {
 }
 
 Scene::Scene() {
-    return;
+    _numGrid = 
 }
 
 bool Scene::push(array<int, 2> pos, int rot) {
