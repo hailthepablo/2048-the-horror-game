@@ -43,7 +43,7 @@ string displayStr(array< array< string, height >, width > displayArray) {
     return displayString;
 }
 
-template <typename T = int, int width = 4, int height = 4>
+template <typename T = int, size_t width = 4, size_t height = 4>
 class Grid {
     public:
         array<int, 2> _origin;
@@ -81,10 +81,6 @@ class Grid {
             } else if (yDir == "up") {
                 _yDir = -1;
             } 
-        }
-
-        Grid() {
-            Grid
         }
 
         array<int, 2> getPos(array<int, 2> indexes) {
